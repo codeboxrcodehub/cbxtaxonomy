@@ -7,7 +7,8 @@ namespace Cbx\Taxonomy;
  * @package Cbx\Taxonomy
  * @since 1.0.0
  */
-class CBXTaxonomy {
+class CBXTaxonomy
+{
 
 	/**
 	 * @var null
@@ -32,13 +33,15 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function __construct() {
-		$this->version     = CBXTAXONOMY_PLUGIN_VERSION;
+	public function __construct()
+	{
+		$this->version = CBXTAXONOMY_PLUGIN_VERSION;
 		$this->plugin_name = CBXTAXONOMY_PLUGIN_NAME;
 
 		//$this->unit_testing();
 		$this->load_orm();
 		$this->load_plugin_textdomain();
+		$this->hooks = new Hooks();
 	}//end of method constructor
 
 	/**
@@ -47,8 +50,9 @@ class CBXTaxonomy {
 	 * @return CBXTaxonomy
 	 * @since 1.0.0
 	 */
-	public static function instance() {
-		if ( is_null( self::$instance ) ) {
+	public static function instance()
+	{
+		if (is_null(self::$instance)) {
 			self::$instance = new self();
 		}
 
@@ -60,8 +64,9 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'cbxtaxonomy', false, CBXTAXONOMY_ROOT_PATH . 'languages/' );
+	public function load_plugin_textdomain()
+	{
+		load_plugin_textdomain('cbxtaxonomy', false, CBXTAXONOMY_ROOT_PATH . 'languages/');
 	}//end method load_plugin_textdomain
 
 	/**
@@ -69,9 +74,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function load_orm() {
+	public function load_orm()
+	{
 		$taxonomy_helper = new CBXTaxonomyHelper();
-		add_action( 'init', [ $taxonomy_helper, 'load_orm' ] );
+		add_action('init', [$taxonomy_helper, 'load_orm']);
 	} // end of load_orm
 
 	/**
@@ -79,34 +85,35 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function unit_testing() {
-		if ( CBXTAXONOMY_DEV_MODE ) {
-			add_action( 'cbxtaxonomy_taxable_delete_before', [
+	public function unit_testing()
+	{
+		if (CBXTAXONOMY_DEV_MODE) {
+			add_action('cbxtaxonomy_taxable_delete_before', [
 				$this,
 				'cbxtaxonomy_taxable_delete_before_test'
-			], 10, 3 );
-			add_action( 'cbxtaxonomy_taxable_delete_after', [ $this, 'cbxtaxonomy_taxable_delete_after_test' ], 10, 3 );
-			add_action( 'cbxtaxonomy_taxable_delete_failed', [
+			], 10, 3);
+			add_action('cbxtaxonomy_taxable_delete_after', [$this, 'cbxtaxonomy_taxable_delete_after_test'], 10, 3);
+			add_action('cbxtaxonomy_taxable_delete_failed', [
 				$this,
 				'cbxtaxonomy_taxable_delete_failed_test'
-			], 10, 3 );
+			], 10, 3);
 
-			add_action( 'cbxtaxonomy_taxonomy_delete_before', [
+			add_action('cbxtaxonomy_taxonomy_delete_before', [
 				$this,
 				'cbxtaxonomy_taxonomy_delete_before_test'
-			], 10, 3 );
-			add_action( 'cbxtaxonomy_taxonomy_delete_after', [
+			], 10, 3);
+			add_action('cbxtaxonomy_taxonomy_delete_after', [
 				$this,
 				'cbxtaxonomy_taxonomy_delete_after_test'
-			], 10, 3 );
-			add_action( 'cbxtaxonomy_taxonomy_delete_failed', [
+			], 10, 3);
+			add_action('cbxtaxonomy_taxonomy_delete_failed', [
 				$this,
 				'cbxtaxonomy_taxonomy_delete_failed_test'
-			], 10, 3 );
+			], 10, 3);
 
-			add_action( 'cbxtaxonomy_taxonomy_save_before', [ $this, 'cbxtaxonomy_taxonomy_save_before_test' ], 10, 2 );
-			add_action( 'cbxtaxonomy_taxonomy_save_after', [ $this, 'cbxtaxonomy_taxonomy_save_after_test' ], 10, 2 );
-			add_action( 'cbxtaxonomy_taxonomy_save_failed', [ $this, 'cbxtaxonomy_taxonomy_save_failed_test' ], 10, 2 );
+			add_action('cbxtaxonomy_taxonomy_save_before', [$this, 'cbxtaxonomy_taxonomy_save_before_test'], 10, 2);
+			add_action('cbxtaxonomy_taxonomy_save_after', [$this, 'cbxtaxonomy_taxonomy_save_after_test'], 10, 2);
+			add_action('cbxtaxonomy_taxonomy_save_failed', [$this, 'cbxtaxonomy_taxonomy_save_failed_test'], 10, 2);
 		}
 	} // end of unit_testing
 
@@ -119,9 +126,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxable_delete_before_test( $taxonomy_id, $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( 'before taxable delete hook $taxonomy_id=' . $taxonomy_id . ' $type=' . $type );
+	public function cbxtaxonomy_taxable_delete_before_test($taxonomy_id, $type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log('before taxable delete hook $taxonomy_id=' . $taxonomy_id . ' $type=' . $type);
 		}
 	}//end of  cbxtaxonomy_taxable_delete_before_test
 
@@ -134,9 +142,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxable_delete_after_test( $taxonomy_id, $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( 'before taxable delete hook $taxonomy_id=' . $taxonomy_id . ' $type=' . $type );
+	public function cbxtaxonomy_taxable_delete_after_test($taxonomy_id, $type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log('before taxable delete hook $taxonomy_id=' . $taxonomy_id . ' $type=' . $type);
 		}
 
 	}//end of cbxtaxonomy_taxable_delete_after_test
@@ -150,9 +159,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxable_delete_failed_test( $taxonomy_id, $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( 'before taxable delete hook $taxonomy_id=' . $taxonomy_id . ' $type=' . $type );
+	public function cbxtaxonomy_taxable_delete_failed_test($taxonomy_id, $type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log('before taxable delete hook $taxonomy_id=' . $taxonomy_id . ' $type=' . $type);
 		}
 
 	}//end of cbxtaxonomy_taxable_delete_failed_test
@@ -166,9 +176,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxonomy_delete_before_test( $id, $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( $id . " here is the id => " . $type );
+	public function cbxtaxonomy_taxonomy_delete_before_test($id, $type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log($id . " here is the id => " . $type);
 		}
 	}//end of cbxtaxonomy_taxonomy_delete_before_test
 
@@ -181,9 +192,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxonomy_delete_after_test( $id, $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( $id . " here is the id => " . $type );
+	public function cbxtaxonomy_taxonomy_delete_after_test($id, $type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log($id . " here is the id => " . $type);
 		}
 	}//end of cbxtaxonomy_taxonomy_delete_after_test
 
@@ -196,9 +208,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxonomy_delete_failed_test( $id, $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( $id . " here is the id => " . $type );
+	public function cbxtaxonomy_taxonomy_delete_failed_test($id, $type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log($id . " here is the id => " . $type);
 		}
 	}//end of cbxtaxonomy_taxonomy_delete_failed_test
 
@@ -210,11 +223,12 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxonomy_save_before_test( $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( "taxonomy save here is the id => " . $type );
+	public function cbxtaxonomy_taxonomy_save_before_test($type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log("taxonomy save here is the id => " . $type);
 		} else {
-			error_log( "taxonomy save here is the id => " . $type );
+			error_log("taxonomy save here is the id => " . $type);
 		}
 	}//end of cbxtaxonomy_taxonomy_save_before_test
 
@@ -226,9 +240,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxonomy_save_after_test( $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( "taxonomy save here is the id => " . $type );
+	public function cbxtaxonomy_taxonomy_save_after_test($type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log("taxonomy save here is the id => " . $type);
 		}
 	}//end of cbxtaxonomy_taxonomy_save_after_test
 
@@ -240,9 +255,10 @@ class CBXTaxonomy {
 	 *
 	 * @since 1.0.0
 	 */
-	public function cbxtaxonomy_taxonomy_save_failed_test( $type, $data ) {
-		if ( function_exists( 'write_log' ) ) {
-			write_log( "taxonomy save here is the id => " . $type );
+	public function cbxtaxonomy_taxonomy_save_failed_test($type, $data)
+	{
+		if (function_exists('write_log')) {
+			write_log("taxonomy save here is the id => " . $type);
 		}
 	}//end of cbxtaxonomy_taxonomy_save_failed_test
 
