@@ -41,7 +41,7 @@ class CBXTaxonomy
 		//$this->unit_testing();
 		$this->load_orm();
 		$this->load_plugin_textdomain();
-		$this->hooks = new Hooks();
+		new Hooks();
 	}//end of method constructor
 
 	/**
