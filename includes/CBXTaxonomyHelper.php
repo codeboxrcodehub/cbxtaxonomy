@@ -62,9 +62,7 @@ class CBXTaxonomyHelper {
 		$texonomy_migration_files = [
 			'CBXWPMigrationsTable',
 			'CBXTaxonomyTaxonomyTableV1D0D0',
-			'CBXTaxonomyTaxableTableV1D0D0',
-			'CBXTaxonomyTaxableUpdateTableV1D0D0',
-			'CBXTaxonomyTableAlter',
+			'CBXTaxonomyTaxableTableV1D0D0'
 		];
 
 		new CBXWPMigrationsTable( $texonomy_migration_files, CBXTAXONOMY_PLUGIN_NAME );
