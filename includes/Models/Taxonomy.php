@@ -143,7 +143,7 @@ class Taxonomy extends Eloquent {
 		if ( ! isset( $this->attributes['id'] ) ) {
 			return '';
 		}
-		if ( ! $this->attributes['mod_date']  ) {
+		if ( ! isset($this->attributes['mod_date'])  ) {
 			return '';
 		}
 
