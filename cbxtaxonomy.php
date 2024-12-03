@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       CBX Taxonomy
  * Plugin URI:        https://wordpress.org/plugins/cbxtaxonomy
- * Description:       Custom taxonomy system for custom table/custom object types. This feature plugin is required for CBXResume, CBXJob and others codeboxr's plugins.
+ * Description:       Custom taxonomy system for custom table/custom object types. This feature plugin is required for ComfortResume, CBXJob and others codeboxr's plugins.
  * Version:           1.0.0
  *  Requires at least: 3.5
  *  Requires PHP:      7.4
