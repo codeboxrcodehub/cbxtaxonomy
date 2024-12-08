@@ -18,7 +18,7 @@
  * Description:       Custom taxonomy system for custom table/custom object types. This feature plugin is required for ComfortResume, ComfortJob and others codeboxr's plugins.
  * Version:           1.0.0
  *  Requires at least: 3.5
- *  Requires PHP:      7.4
+ *  Requires PHP:      8.2
  * Author:            Codeboxr
  * Author URI:        https://codeboxr.com
  * License:           GPL-2.0+
