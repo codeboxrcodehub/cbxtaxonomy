@@ -1,15 +1,14 @@
 <?php
 
-namespace Cbx\Taxonomy;
+use Cbx\Taxonomy\CBXTaxonomyHelper;
+use Cbx\Taxonomy\Hooks;
 
 /**
  * Class CBXTaxonomy
  * @package Cbx\Taxonomy
  * @since 1.0.0
  */
-class CBXTaxonomy
-{
-
+final class CBXTaxonomy{
 	/**
 	 * @var null
 	 * @since 1.0.0
@@ -38,9 +37,12 @@ class CBXTaxonomy
 		$this->version = CBXTAXONOMY_PLUGIN_VERSION;
 		$this->plugin_name = CBXTAXONOMY_PLUGIN_NAME;
 
+		$this->include_files();
+
 		//$this->unit_testing();
 		$this->load_orm();
 		$this->load_plugin_textdomain();
+
 		new Hooks();
 	}//end of method constructor
 
@@ -58,6 +60,15 @@ class CBXTaxonomy
 
 		return self::$instance;
 	}//end method instance
+
+	/**
+	 * Include necessary files
+	 *
+	 * @return void
+	 */
+	private function include_files() {
+		require_once __DIR__ . '/../lib/autoload.php';
+	}//end method include_files
 
 	/**
 	 * Load textdomain

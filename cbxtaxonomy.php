@@ -28,50 +28,79 @@
  */
 
 // If this file is called directly, abort.
-if (!defined('WPINC')) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-defined('CBXTAXONOMY_PLUGIN_NAME') or define('CBXTAXONOMY_PLUGIN_NAME', 'cbxtaxonomy');
-defined('CBXTAXONOMY_PLUGIN_VERSION') or define('CBXTAXONOMY_PLUGIN_VERSION', '1.0.0');
-defined('CBXTAXONOMY_BASE_NAME') or define('CBXTAXONOMY_BASE_NAME', plugin_basename(__FILE__));
-defined('CBXTAXONOMY_ROOT_PATH') or define('CBXTAXONOMY_ROOT_PATH', plugin_dir_path(__FILE__));
-defined('CBXTAXONOMY_ROOT_URL') or define('CBXTAXONOMY_ROOT_URL', plugin_dir_url(__FILE__));
-defined('CBXTAXONOMY_DEV_MODE') or define('CBXTAXONOMY_DEV_MODE', true);
+use Cbx\Taxonomy\CBXTaxonomyHelper;
 
-require_once CBXTAXONOMY_ROOT_PATH . "lib/autoload.php";
+defined( 'CBXTAXONOMY_PLUGIN_NAME' ) or define( 'CBXTAXONOMY_PLUGIN_NAME', 'cbxtaxonomy' );
+defined( 'CBXTAXONOMY_PLUGIN_VERSION' ) or define( 'CBXTAXONOMY_PLUGIN_VERSION', '1.0.0' );
+defined( 'CBXTAXONOMY_BASE_NAME' ) or define( 'CBXTAXONOMY_BASE_NAME', plugin_basename( __FILE__ ) );
+defined( 'CBXTAXONOMY_ROOT_PATH' ) or define( 'CBXTAXONOMY_ROOT_PATH', plugin_dir_path( __FILE__ ) );
+defined( 'CBXTAXONOMY_ROOT_URL' ) or define( 'CBXTAXONOMY_ROOT_URL', plugin_dir_url( __FILE__ ) );
+defined( 'CBXTAXONOMY_DEV_MODE' ) or define( 'CBXTAXONOMY_DEV_MODE', true );
 
-register_activation_hook(__FILE__, 'activate_cbxtaxonomy');
-register_deactivation_hook(__FILE__, 'deactivate_cbxtaxonomy');
+// Include the main ComfortResume class.
+if ( ! class_exists( 'CBXTaxonomy', false ) ) {
+	include_once CBXTAXONOMY_ROOT_PATH . 'includes/CBXTaxonomy.php';
+}
+
+//require_once CBXTAXONOMY_ROOT_PATH . "lib/autoload.php";
+
+register_activation_hook( __FILE__, 'activate_cbxtaxonomy' );
+register_deactivation_hook( __FILE__, 'deactivate_cbxtaxonomy' );
 
 /**
  *  * The code that runs during plugin activation.
  * The code that runs during plugin deactivation.
  */
-function activate_cbxtaxonomy()
-{
-	\Cbx\Taxonomy\CBXTaxonomyHelper::load_orm();
-	\Cbx\Taxonomy\CBXTaxonomyHelper::active_plugin();
+function activate_cbxtaxonomy() {
+	cbxtaxonomy();
+
+	CBXTaxonomyHelper::load_orm();
+	CBXTaxonomyHelper::active_plugin();
 }
 
 /**
  * The code that runs during plugin deactivation.
  */
-function deactivate_cbxtaxonomy()
-{
-	\Cbx\Taxonomy\CBXTaxonomyHelper::load_orm();
+function deactivate_cbxtaxonomy() {
+	cbxtaxonomy();
+
+	CBXTaxonomyHelper::load_orm();
 }
 
 
 /**
+ * Returns the main instance of CBXTaxonomy.
+ *
+ * @since  1.0
+ */
+function cbxtaxonomy() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	global $cbxtaxonomy;
+
+	// If the global variable is not already set, initialize it
+	if ( ! isset( $cbxtaxonomy ) ) {
+		$cbxtaxonomy = run_cbxtaxonomy();
+	}
+
+	return $cbxtaxonomy;
+}//end function cbxtaxonomy_core
+
+/**
+ * Initialize ComfortResume pro plugin
+ * @since 1.0.0
+ */
+function run_cbxtaxonomy() {
+	return CBXTaxonomy::instance();
+}//end function run_cbxtaxonomy
+
+/**
  * Init cbxtaxonomy plugin
  */
-function cbxtaxonomy()
-{
-	if (defined('CBXTAXONOMY_PLUGIN_NAME')) {
-		\Cbx\Taxonomy\CBXTaxonomy::instance();
-	}
-}//end function cbxtaxonomy
+function cbxtaxonomy_init() {
+	$GLOBALS['cbxtaxonomy'] = run_cbxtaxonomy();
+}//end function cbxtaxonomy_init
 
-add_action('plugins_loaded', 'cbxtaxonomy');
-
+add_action( 'plugins_loaded', 'cbxtaxonomy_init' );
