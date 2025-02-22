@@ -13,17 +13,17 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 class CBXTaxonomyTaxableTableV1D0D0 {
 
 	public function __construct() {
-		$cbxresume_table = 'cbxtaxable';
+		$comfortresume_table = 'cbxtaxable';
 		try {
-			if (!Capsule::schema()->hasTable($cbxresume_table)) {
-				Capsule::schema()->create($cbxresume_table, function ($table) {
-					$table->bigIncrements('id');
-					$table->bigInteger('taxonomy_id');
-					$table->bigInteger('taxable_id');
-					$table->string('taxable_type')->nullable()->comment('type of taxable taxonomy');
-					$table->dateTime('add_date')->nullable()->comment('created date');
-					$table->dateTime('mod_date')->nullable()->comment('modified date');
-				});
+			if ( ! Capsule::schema()->hasTable( $comfortresume_table ) ) {
+				Capsule::schema()->create( $comfortresume_table, function ( $table ) {
+					$table->bigIncrements( 'id' );
+					$table->bigInteger( 'taxonomy_id' );
+					$table->bigInteger( 'taxable_id' );
+					$table->string( 'taxable_type' )->nullable()->comment( 'type of taxable taxonomy' );
+					$table->dateTime( 'add_date' )->nullable()->comment( 'created date' );
+					$table->dateTime( 'mod_date' )->nullable()->comment( 'modified date' );
+				} );
 			}
 		} catch ( Exception $e ) {
 			if ( function_exists( 'write_log' ) ) {

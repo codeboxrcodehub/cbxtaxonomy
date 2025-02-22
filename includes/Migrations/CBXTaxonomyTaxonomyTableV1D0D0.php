@@ -13,10 +13,10 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 class CBXTaxonomyTaxonomyTableV1D0D0 {
 
 	public function __construct() {
-		$cbxresume_table = 'cbxtaxonomy';
+		$cbxtaxonomy_table = 'cbxtaxonomy';
 		try {
-			if ( ! Capsule::schema()->hasTable( $cbxresume_table ) ) {
-				Capsule::schema()->create( $cbxresume_table, function ( $table ) {
+			if ( ! Capsule::schema()->hasTable( $cbxtaxonomy_table ) ) {
+				Capsule::schema()->create( $cbxtaxonomy_table, function ( $table ) {
 					$table->bigIncrements( 'id' );
 					$table->string( 'title' );
 					$table->string( 'slug' )->nullable();

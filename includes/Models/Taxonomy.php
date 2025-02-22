@@ -18,6 +18,11 @@ class Taxonomy extends Eloquent {
 
 	public $timestamps = false;
 
+	protected $appends = [
+		'formatted_add_date',
+		'formatted_mod_date'
+	];
+
 	/**
 	 * Get the options for generating the slug.
 	 */
@@ -110,4 +115,40 @@ class Taxonomy extends Eloquent {
 
 		return $delete;
 	}//end method delete
+
+	/**
+	 * get formatted add date
+	 *
+	 * @return string
+	 */
+	public function getFormattedAddDateAttribute() {
+		if ( ! isset( $this->attributes['id'] ) ) {
+			return '';
+		}
+		if ( ! isset( $this->attributes['add_date'] ) ) {
+			return '';
+		}
+
+		$format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+
+		return date_i18n( $format, strtotime( $this->attributes['add_date'] ) );
+	}//end method getFormattedAddDateAttribute
+
+	/**
+	 * get formatted mod date
+	 *
+	 * @return string
+	 */
+	public function getFormattedModDateAttribute() {
+		if ( ! isset( $this->attributes['id'] ) ) {
+			return '';
+		}
+		if ( ! isset( $this->attributes['mod_date'] ) ) {
+			return '';
+		}
+
+		$format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+
+		return date_i18n( $format, strtotime( $this->attributes['mod_date'] ) );
+	}//end method getFormattedModDateAttribute
 }//end class Taxonomy

@@ -15,63 +15,92 @@
  * @wordpress-plugin
  * Plugin Name:       CBX Taxonomy
  * Plugin URI:        https://wordpress.org/plugins/cbxtaxonomy
- * Description:       Custom taxonomy system for custom table/custom object types. This feature plugin is required for CBXResume, CBXJob and others codeboxr's plugins.
- * Version:           1.0.0
- *  Requires at least: 3.5
- *  Requires PHP:      7.4
+ * Description:       Custom taxonomy system for custom table/custom object types. This feature plugin is required for ComfortResume, ComfortJob and others plugins.
+ * Version:           1.0.1
+ *  Requires at least: 5.3
+ *  Requires PHP:      8.2
  * Author:            Codeboxr
  * Author URI:        https://codeboxr.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       cbxtaxonomy
+ * Text Domain:       cbxwptaxonomy
  * Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
-if (!defined('WPINC')) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-defined('CBXTAXONOMY_PLUGIN_NAME') or define('CBXTAXONOMY_PLUGIN_NAME', 'cbxtaxonomy');
-defined('CBXTAXONOMY_PLUGIN_VERSION') or define('CBXTAXONOMY_PLUGIN_VERSION', '1.0.0');
-defined('CBXTAXONOMY_BASE_NAME') or define('CBXTAXONOMY_BASE_NAME', plugin_basename(__FILE__));
-defined('CBXTAXONOMY_ROOT_PATH') or define('CBXTAXONOMY_ROOT_PATH', plugin_dir_path(__FILE__));
-defined('CBXTAXONOMY_ROOT_URL') or define('CBXTAXONOMY_ROOT_URL', plugin_dir_url(__FILE__));
-defined('CBXTAXONOMY_DEV_MODE') or define('CBXTAXONOMY_DEV_MODE', true);
+use Cbx\Taxonomy\CBXTaxonomyHelper;
 
-require_once CBXTAXONOMY_ROOT_PATH . "lib/autoload.php";
+defined( 'CBXTAXONOMY_PLUGIN_NAME' ) or define( 'CBXTAXONOMY_PLUGIN_NAME', 'cbxtaxonomy' );
+defined( 'CBXTAXONOMY_PLUGIN_VERSION' ) or define( 'CBXTAXONOMY_PLUGIN_VERSION', '1.0.1' );
+defined( 'CBXTAXONOMY_BASE_NAME' ) or define( 'CBXTAXONOMY_BASE_NAME', plugin_basename( __FILE__ ) );
+defined( 'CBXTAXONOMY_ROOT_PATH' ) or define( 'CBXTAXONOMY_ROOT_PATH', plugin_dir_path( __FILE__ ) );
+defined( 'CBXTAXONOMY_ROOT_URL' ) or define( 'CBXTAXONOMY_ROOT_URL', plugin_dir_url( __FILE__ ) );
 
-register_activation_hook(__FILE__, 'activate_cbxtaxonomy');
-register_deactivation_hook(__FILE__, 'deactivate_cbxtaxonomy');
+//for development purpose only
+defined( 'CBXTAXONOMY_DEV_MODE' ) or define( 'CBXTAXONOMY_DEV_MODE', true );
+
+// Include the main CBXTaxonomy class.
+if ( ! class_exists( 'CBXTaxonomy', false ) ) {
+	include_once CBXTAXONOMY_ROOT_PATH . 'includes/CBXTaxonomy.php';
+}
+
+
+register_activation_hook( __FILE__, 'activate_cbxtaxonomy' );
+register_deactivation_hook( __FILE__, 'deactivate_cbxtaxonomy' );
 
 /**
  *  * The code that runs during plugin activation.
  * The code that runs during plugin deactivation.
  */
-function activate_cbxtaxonomy()
-{
-	\Cbx\Taxonomy\CBXTaxonomyHelper::load_orm();
-	\Cbx\Taxonomy\CBXTaxonomyHelper::active_plugin();
-}
+function activate_cbxtaxonomy() {
+	cbxtaxonomy();
+
+	CBXTaxonomyHelper::load_orm();
+	CBXTaxonomyHelper::active_plugin();
+}//end function activate_cbxtaxonomy
 
 /**
  * The code that runs during plugin deactivation.
  */
-function deactivate_cbxtaxonomy()
-{
-	\Cbx\Taxonomy\CBXTaxonomyHelper::load_orm();
-}
+function deactivate_cbxtaxonomy() {
+	//cbxtaxonomy();
+	//CBXTaxonomyHelper::load_orm();
+}//end function deactivate_cbxtaxonomy
 
+
+/**
+ * Returns the main instance of CBXTaxonomy.
+ *
+ * @since  1.0
+ */
+function cbxtaxonomy() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	global $cbxtaxonomy;
+
+	// If the global variable is not already set, initialize it
+	if ( ! isset( $cbxtaxonomy ) ) {
+		$cbxtaxonomy = run_cbxtaxonomy();
+	}
+
+	return $cbxtaxonomy;
+}//end function cbxtaxonomy_core
+
+/**
+ * Initialize ComfortResume pro plugin
+ * @since 1.0.0
+ */
+function run_cbxtaxonomy() {
+	return CBXTaxonomy::instance();
+}//end function run_cbxtaxonomy
 
 /**
  * Init cbxtaxonomy plugin
  */
-function cbxtaxonomy()
-{
-	if (defined('CBXTAXONOMY_PLUGIN_NAME')) {
-		\Cbx\Taxonomy\CBXTaxonomy::instance();
-	}
-}//end function cbxtaxonomy
+function cbxtaxonomy_init() {
+	$GLOBALS['cbxtaxonomy'] = run_cbxtaxonomy();
+}//end function cbxtaxonomy_init
 
-add_action('plugins_loaded', 'cbxtaxonomy');
-
+add_action( 'plugins_loaded', 'cbxtaxonomy_init' );

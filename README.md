@@ -1,4 +1,4 @@
-Open source Taxonomy plugin
+WordPress helper plugin for creating custom taxonomy (category, tag) inside WordPress
 
 ## Description
 Open source plugin for creating category and tag. In this plugin we have used custom table for creating the categories and tags so that it uses less resource.
@@ -7,7 +7,7 @@ Software requirements
 
 The following software is required to develop using CBXTaxonomy:
 
- * PHP version 7.4 or newer
+ * PHP version 8.2 or newer
 
 
 ## Installation

@@ -1,6 +1,6 @@
 {
   "name": "cbx/taxonomy",
-  "description": "cbx taxonomy plugin",
+  "description": "WordPress Custom Taxonomy Plugin",
   "type": "library",
   "license": "MIT",
   "config": {

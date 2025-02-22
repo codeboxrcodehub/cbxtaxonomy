@@ -60,11 +60,16 @@ if ( ! function_exists( 'cbxtaxonomy_check_exists' ) ) {
 	 *
 	 * @return bool
 	 */
-	function cbxtaxonomy_check_exists( $slug= '', $type = '' ) {
-		
+	function cbxtaxonomy_check_exists( $slug = '', $type = '' ) {
 
-		if($slug == '') return false;
-		if($type == '') return false;
+
+		if ( $slug == '' ) {
+			return false;
+		}
+		if ( $type == '' ) {
+			return false;
+		}
+
 		return \Cbx\Taxonomy\Models\Taxonomy::query()->where( 'slug', sanitize_text_field( $slug ) )->where( 'type', $type )->exists();
 	}//end function cbxtaxonomy_check_exists
 }
