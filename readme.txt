@@ -30,5 +30,9 @@ The following software is required to develop using CBXTaxonomy:
 
 == Changelog ==
 
+= 1.0.1 =
+* Added language file
+* Added repo info url in plugin listing in dashboard
+
 = 1.0.0 =
 * First public release
