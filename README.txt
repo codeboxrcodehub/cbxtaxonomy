@@ -1,12 +1,12 @@
-=== CBX Taxonomy Library ===
+=== CBX Taxonomy ===
 Contributors: codeboxr, manchumahara
-Requires at least: 3.5
-Tested up to: 6.4.3
-Stable tag: 1.0.5
+Requires at least: 5.3
+Tested up to: 6.7.2
+Stable tag: 1.0.1
 License: MIT
 License URI: https://github.com/codeboxrcodehub/cbxwptaxonomy/blob/master/LICENSE.txt
 
-Open source Taxonomy plugin
+WordPress helper plugin for creating custom taxonomy (category, tag) inside WordPress
 
 == Description ==
 
@@ -16,7 +16,7 @@ Software requirements
 
 The following software is required to develop using CBXTaxonomy:
 
- * PHP version 7.4 or newer
+ * PHP version 8.2 or newer
 
 
 

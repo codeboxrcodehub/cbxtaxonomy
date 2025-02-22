@@ -129,26 +129,26 @@ class Taxonomy extends Eloquent {
 			return '';
 		}
 
-		$format = get_option('date_format') . ' ' . get_option('time_format');
+		$format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 
-		return date_i18n($format, strtotime($this->attributes['add_date']));
+		return date_i18n( $format, strtotime( $this->attributes['add_date'] ) );
 	}//end method getFormattedAddDateAttribute
 
 	/**
 	 * get formatted mod date
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getFormattedModDateAttribute() {
 		if ( ! isset( $this->attributes['id'] ) ) {
 			return '';
 		}
-		if ( ! isset($this->attributes['mod_date'])  ) {
+		if ( ! isset( $this->attributes['mod_date'] ) ) {
 			return '';
 		}
 
-		$format = get_option('date_format') . ' ' . get_option('time_format');
+		$format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 
-		return date_i18n($format, strtotime($this->attributes['mod_date']));
+		return date_i18n( $format, strtotime( $this->attributes['mod_date'] ) );
 	}//end method getFormattedModDateAttribute
 }//end class Taxonomy
