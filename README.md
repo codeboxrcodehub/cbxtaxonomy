@@ -12,11 +12,11 @@ The following software is required to develop using CBXTaxonomy:
 
 ## Installation
 
-1. Download the latest zip from [here](https://github.com/codeboxrcodehub/cbxwptaxonomy/releases)
+1. Download the latest zip from [here](https://github.com/codeboxrcodehub/cbxtaxonomy/releases)
 2. WordPress has clear documentation about [how to install a plugin](https://codex.wordpress.org/Managing_Plugins)
 3. After install activate the plugin "CBX Taxonomy" through the 'Plugins' menu in WordPress
 4. This plugin doesn't load any library by default, it doesn't create extra folder or menu.
 
 ## Licence
 
-[MIT](https://github.com/codeboxrcodehub/cbxwptaxonomy/blob/master/LICENSE.txt)
+[MIT](https://github.com/codeboxrcodehub/cbxtaxonomy/blob/master/LICENSE.txt)

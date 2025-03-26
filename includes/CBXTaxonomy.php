@@ -108,8 +108,8 @@ final class CBXTaxonomy {
 				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			}
 
-			$links_array[] = '<a target="_blank" style="color:#005ae0 !important; font-weight: bold;" href="https://github.com/codeboxrcodehub/cbxwptaxonomy" aria-label="' . esc_attr__( 'Github Repo', 'cbxwptaxonomy' ) . '">' . esc_html__( 'Github Repo', 'cbxwptaxonomy' ) . '</a>';
-			$links_array[] = '<a target="_blank" style="color:#005ae0 !important; font-weight: bold;" href="https://github.com/codeboxrcodehub/cbxwptaxonomy/releases" aria-label="' . esc_attr__( 'Download', 'cbxwptaxonomy' ) . '">' . esc_html__( 'Download Latest', 'cbxwptaxonomy' ) . '</a>';
+			$links_array[] = '<a target="_blank" style="color:#005ae0 !important; font-weight: bold;" href="https://github.com/codeboxrcodehub/cbxtaxonomy" aria-label="' . esc_attr__( 'Github Repo', 'cbxtaxonomy' ) . '">' . esc_html__( 'Github Repo', 'cbxtaxonomy' ) . '</a>';
+			$links_array[] = '<a target="_blank" style="color:#005ae0 !important; font-weight: bold;" href="https://github.com/codeboxrcodehub/cbxtaxonomy/releases" aria-label="' . esc_attr__( 'Download', 'cbxtaxonomy' ) . '">' . esc_html__( 'Download Latest', 'cbxtaxonomy' ) . '</a>';
 		}
 
 		return $links_array;

@@ -4,7 +4,7 @@ Requires at least: 5.3
 Tested up to: 6.7.2
 Stable tag: 1.0.1
 License: MIT
-License URI: https://github.com/codeboxrcodehub/cbxwptaxonomy/blob/master/LICENSE.txt
+License URI: https://github.com/codeboxrcodehub/cbxtaxonomy/blob/master/LICENSE.txt
 
 WordPress helper plugin for creating custom taxonomy (category, tag) inside WordPress
 
@@ -22,7 +22,7 @@ The following software is required to develop using CBXTaxonomy:
 
 == Installation ==
 
-1. Download the latest zip from here (https://github.com/codeboxrcodehub/cbxwptaxonomy/releases)
+1. Download the latest zip from here (https://github.com/codeboxrcodehub/cbxtaxonomy/releases)
 2. [WordPress has clear documentation about how to install a plugin].(https://codex.wordpress.org/Managing_Plugins)
 3. After install activate the plugin "CBX Taxonomy" through the 'Plugins' menu in WordPress
 4. This plugin doesn't load any library by default, it doesn't create extra folder or menu.

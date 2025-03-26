@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       CBX Taxonomy
- * Plugin URI:        https://wordpress.org/plugins/cbxtaxonomy
+ * Plugin URI:        https://github.com/codeboxrcodehub/cbxtaxonomy
  * Description:       Custom taxonomy system for custom table/custom object types. This feature plugin is required for ComfortResume, ComfortJob and others plugins.
  * Version:           1.0.1
  *  Requires at least: 5.3
@@ -23,7 +23,7 @@
  * Author URI:        https://codeboxr.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       cbxwptaxonomy
+ * Text Domain:       cbxtaxonomy
  * Domain Path:       /languages
  */
 
