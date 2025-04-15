@@ -1,19 +1,16 @@
 <?php
-
 namespace Cbx\Taxonomy;
 
-use Cbx\Taxonomy\PDUpdater;
+use Cbx\Taxonomy\CBXTaxonomyHelper;
 
 class Hooks {
 	public function __construct() {
-		$this->update_checker();
-	}
+		$helper = new CBXTaxonomyHelper();
 
-	public function update_checker() {
-		$updater = new PDUpdater( CBXTAXONOMY_ROOT_PATH . 'cbxtaxonomy.php' );
-		$updater->set_username( 'codeboxrcodehub' );
-		$updater->set_repository( 'cbxtaxonomy' );
-		$updater->authorize( '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' );
-		$updater->initialize();
-	}//end method update_checker
+		add_filter( 'pre_set_site_transient_update_plugins', [
+			$helper,
+			'pre_set_site_transient_update_plugins'
+		] );
+		add_filter( 'plugins_api', [ $helper, 'plugin_info' ], 10, 3 );
+	}
 }//end class Hooks
