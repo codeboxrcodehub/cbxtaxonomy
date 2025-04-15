@@ -30,7 +30,7 @@ The following software is required to develop using CBXTaxonomy:
 
 == Changelog ==
 = 1.0.2 =
-* Github based plugin checker removed
+* Custom plugin checker added
 
 = 1.0.1 =
 * Added language file
