@@ -1,8 +1,8 @@
 === CBX Taxonomy ===
 Contributors: codeboxr, manchumahara
 Requires at least: 5.3
-Tested up to: 6.7.2
-Stable tag: 1.0.1
+Tested up to: 6.8
+Stable tag: 1.0.2
 License: MIT
 License URI: https://github.com/codeboxrcodehub/cbxtaxonomy/blob/master/LICENSE.txt
 
@@ -29,6 +29,8 @@ The following software is required to develop using CBXTaxonomy:
 
 
 == Changelog ==
+= 1.0.2 =
+* Github based plugin checker removed
 
 = 1.0.1 =
 * Added language file

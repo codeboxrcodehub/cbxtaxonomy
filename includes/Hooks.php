@@ -6,7 +6,7 @@ use Cbx\Taxonomy\PDUpdater;
 
 class Hooks {
 	public function __construct() {
-		//$this->update_checker();
+		$this->update_checker();
 	}
 
 	public function update_checker() {

@@ -38,13 +38,14 @@ final class CBXTaxonomy {
 
 		$this->include_files();
 
-		//$this->unit_testing();
+		//$this->unit_testing();//don't delete this
 		$this->load_orm();
-		$this->load_plugin_textdomain();
 
+
+		add_filter( 'init', [ $this, 'load_plugin_textdomain' ]);
 		add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 4 );
 
-		//new Hooks();
+		//new Hooks();//we are not using the github update checker
 	}//end of method constructor
 
 	/**
