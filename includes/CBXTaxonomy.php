@@ -42,7 +42,7 @@ final class CBXTaxonomy {
 		$this->load_orm();
 
 
-		add_filter( 'init', [ $this, 'load_plugin_textdomain' ]);
+		add_action( 'init', [ $this, 'load_plugin_textdomain' ]);
 		add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 4 );
 
 		//new Hooks();//we are not using the github update checker
