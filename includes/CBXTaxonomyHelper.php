@@ -166,6 +166,40 @@ class CBXTaxonomyHelper {
 				'changelog'   => isset( $remote_data['changelog'] ) ? wp_kses_post( $remote_data['changelog'] ) : '',
 			],
 		];
-
 	}//end method plugin_info
+
+	/**
+	 * Load textdomain
+	 *
+	 * @since 1.0.0
+	 */
+	public function load_plugin_textdomain() {
+		load_plugin_textdomain( 'cbxtaxonomy', false, CBXTAXONOMY_ROOT_PATH . 'languages/' );
+	}//end method load_plugin_textdomain
+
+	/**
+	 * Filters the array of row meta for each/specific plugin in the Plugins list table.
+	 * Appends additional links below each/specific plugin on the plugins page.
+	 *
+	 * @access  public
+	 *
+	 * @param  array  $links_array  An array of the plugin's metadata
+	 * @param  string  $plugin_file_name  Path to the plugin file
+	 * @param  array  $plugin_data  An array of plugin data
+	 * @param  string  $status  Status of the plugin
+	 *
+	 * @return  array       $links_array
+	 */
+	public function plugin_row_meta( $links_array, $plugin_file_name, $plugin_data, $status ) {
+		if ( strpos( $plugin_file_name, CBXTAXONOMY_BASE_NAME ) !== false ) {
+			if ( ! function_exists( 'is_plugin_active' ) ) {
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			}
+
+			$links_array[] = '<a target="_blank" style="color:#005ae0 !important; font-weight: bold;" href="https://github.com/codeboxrcodehub/cbxtaxonomy" aria-label="' . esc_attr__( 'Github Repo', 'cbxtaxonomy' ) . '">' . esc_html__( 'Github Repo', 'cbxtaxonomy' ) . '</a>';
+			$links_array[] = '<a target="_blank" style="color:#005ae0 !important; font-weight: bold;" href="https://github.com/codeboxrcodehub/cbxtaxonomy/releases" aria-label="' . esc_attr__( 'Download', 'cbxtaxonomy' ) . '">' . esc_html__( 'Download Latest', 'cbxtaxonomy' ) . '</a>';
+		}
+
+		return $links_array;
+	}//end plugin_row_meta
 }//end class CBXTaxonomyHelper

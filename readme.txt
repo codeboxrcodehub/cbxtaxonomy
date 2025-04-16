@@ -31,6 +31,7 @@ The following software is required to develop using CBXTaxonomy:
 == Changelog ==
 = 1.0.2 =
 * Custom plugin checker added
+* Core refactored
 
 = 1.0.1 =
 * Added language file

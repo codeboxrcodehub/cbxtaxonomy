@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CBX Taxonomy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 06:08+0000\n"
+"POT-Creation-Date: 2025-04-16 14:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -30,10 +30,22 @@ msgid ""
 "plugin is required for ComfortResume, ComfortJob and others plugins."
 msgstr ""
 
+#: includes/CBXTaxonomyHelper.php:200
+msgid "Download"
+msgstr ""
+
+#: includes/CBXTaxonomyHelper.php:200
+msgid "Download Latest"
+msgstr ""
+
+#: includes/CBXTaxonomyHelper.php:199
+msgid "Github Repo"
+msgstr ""
+
 #. Author URI of the plugin
 msgid "https://codeboxr.com"
 msgstr ""
 
 #. URI of the plugin
-msgid "https://wordpress.org/plugins/cbxtaxonomy"
+msgid "https://github.com/codeboxrcodehub/cbxtaxonomy"
 msgstr ""
