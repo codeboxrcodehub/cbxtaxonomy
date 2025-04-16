@@ -21,7 +21,7 @@ class Hooks {
 
 		add_action( 'init', [ $taxonomy_helper, 'load_orm' ] );
 
-		$this->unit_testing();//don't delete this
+		//$this->unit_testing();//don't delete this
 	}
 
 	/**
