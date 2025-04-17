@@ -26,7 +26,7 @@ class CBXWPMigrationsTable {
 				Capsule::schema()->create( 'cbxmigrations', function ( $table ) {
 					$table->increments( 'id' );
 					$table->string( 'migration' );
-					$table->integer( 'batch' );
+					$table->integer( 'batch' )->default(0);
 					$table->string( 'plugin' );
 				} );
 			}
