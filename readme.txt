@@ -2,7 +2,7 @@
 Contributors: codeboxr, manchumahara
 Requires at least: 5.3
 Tested up to: 6.8
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: MIT
 License URI: https://github.com/codeboxrcodehub/cbxtaxonomy/blob/master/LICENSE.txt
 
@@ -29,6 +29,9 @@ The following software is required to develop using CBXTaxonomy:
 
 
 == Changelog ==
+= 1.0.4 =
+* [fixed] SQL error for default value bug fixed
+
 = 1.0.3 =
 * Minor changes, disabled/commented the unit testing feature call.
 

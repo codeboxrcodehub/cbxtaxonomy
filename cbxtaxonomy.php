@@ -16,7 +16,7 @@
  * Plugin Name:       CBX Taxonomy
  * Plugin URI:        https://github.com/codeboxrcodehub/cbxtaxonomy
  * Description:       Custom taxonomy system for custom table/custom object types. This feature plugin is required for ComfortResume, ComfortJob and others plugins.
- * Version:           1.0.3
+ * Version:           1.0.4
  *  Requires at least: 5.3
  *  Requires PHP:      8.2
  * Author:            Codeboxr
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
 use Cbx\Taxonomy\CBXTaxonomyHelper;
 
 defined( 'CBXTAXONOMY_PLUGIN_NAME' ) or define( 'CBXTAXONOMY_PLUGIN_NAME', 'cbxtaxonomy' );
-defined( 'CBXTAXONOMY_PLUGIN_VERSION' ) or define( 'CBXTAXONOMY_PLUGIN_VERSION', '1.0.3' );
+defined( 'CBXTAXONOMY_PLUGIN_VERSION' ) or define( 'CBXTAXONOMY_PLUGIN_VERSION', '1.0.4' );
 defined( 'CBXTAXONOMY_BASE_NAME' ) or define( 'CBXTAXONOMY_BASE_NAME', plugin_basename( __FILE__ ) );
 defined( 'CBXTAXONOMY_ROOT_PATH' ) or define( 'CBXTAXONOMY_ROOT_PATH', plugin_dir_path( __FILE__ ) );
 defined( 'CBXTAXONOMY_ROOT_URL' ) or define( 'CBXTAXONOMY_ROOT_URL', plugin_dir_url( __FILE__ ) );
