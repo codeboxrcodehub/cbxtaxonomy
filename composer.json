@@ -3,9 +3,6 @@
   "description": "WordPress Custom Taxonomy Plugin",
   "type": "library",
   "license": "MIT",
-  "config": {
-    "vendor-dir": "lib"
-  },
   "require": {
     "illuminate/database": "^8.83",
     "illuminate/pagination": "^8.83",

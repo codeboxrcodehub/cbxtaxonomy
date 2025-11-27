@@ -63,6 +63,6 @@ final class CBXTaxonomy {
 	 * @return void
 	 */
 	private function include_files() {
-		require_once __DIR__ . '/../lib/autoload.php';
+		require_once __DIR__ . '/../vendor/autoload.php';
 	}//end method include_files
 }//end class CBXTaxonomy
