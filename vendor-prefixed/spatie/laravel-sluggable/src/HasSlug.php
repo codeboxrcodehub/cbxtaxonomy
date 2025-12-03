@@ -1,13 +1,13 @@
 <?php
 
-namespace CbxTaxonomyScoped\Spatie\Sluggable;
+namespace Spatie\Sluggable;
 
 use CbxTaxonomyScoped\Illuminate\Database\Eloquent\Model;
 use CbxTaxonomyScoped\Illuminate\Support\Str;
 trait HasSlug
 {
-    protected SlugOptions $slugOptions;
-    abstract public function getSlugOptions(): SlugOptions;
+    protected \Spatie\Sluggable\SlugOptions $slugOptions;
+    abstract public function getSlugOptions(): \Spatie\Sluggable\SlugOptions;
     protected static function bootHasSlug()
     {
         static::creating(function (Model $model) {
@@ -111,13 +111,13 @@ trait HasSlug
     protected function ensureValidSlugOptions()
     {
         if (is_array($this->slugOptions->generateSlugFrom) && !count($this->slugOptions->generateSlugFrom)) {
-            throw InvalidOption::missingFromField();
+            throw \Spatie\Sluggable\InvalidOption::missingFromField();
         }
         if (!strlen($this->slugOptions->slugField)) {
-            throw InvalidOption::missingSlugField();
+            throw \Spatie\Sluggable\InvalidOption::missingSlugField();
         }
         if ($this->slugOptions->maximumLength <= 0) {
-            throw InvalidOption::invalidMaximumLength();
+            throw \Spatie\Sluggable\InvalidOption::invalidMaximumLength();
         }
     }
     /**

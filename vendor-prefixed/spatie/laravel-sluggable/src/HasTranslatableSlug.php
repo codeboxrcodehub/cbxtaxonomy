@@ -1,13 +1,13 @@
 <?php
 
-namespace CbxTaxonomyScoped\Spatie\Sluggable;
+namespace Spatie\Sluggable;
 
 use CbxTaxonomyScoped\Illuminate\Support\Collection;
 use CbxTaxonomyScoped\Illuminate\Support\Str;
 use CbxTaxonomyScoped\Illuminate\Support\Traits\Localizable;
 trait HasTranslatableSlug
 {
-    use HasSlug, Localizable;
+    use \Spatie\Sluggable\HasSlug, Localizable;
     protected function getLocalesForSlug(): Collection
     {
         $generateSlugFrom = $this->slugOptions->generateSlugFrom;

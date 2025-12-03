@@ -1,6 +1,6 @@
 <?php
 
-namespace CbxTaxonomyScoped\Spatie\Sluggable;
+namespace Spatie\Sluggable;
 
 class SlugOptions
 {

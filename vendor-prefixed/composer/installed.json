@@ -868,7 +868,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "CbxTaxonomyScoped\\Spatie\\Sluggable\\": "src"
+                    "Spatie\\Sluggable\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",

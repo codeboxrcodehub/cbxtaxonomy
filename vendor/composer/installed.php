@@ -3,7 +3,7 @@
         'name' => 'cbx/taxonomy',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '087d46cb7585be9c78bee835b14025b4f1e390fc',
+        'reference' => '997970621d80243697ba549eedcb0027189d7e02',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'cbx/taxonomy' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '087d46cb7585be9c78bee835b14025b4f1e390fc',
+            'reference' => '997970621d80243697ba549eedcb0027189d7e02',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

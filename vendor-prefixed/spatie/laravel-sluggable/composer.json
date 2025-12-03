@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "CbxTaxonomyScoped\\Spatie\\Sluggable\\": "src"
+            "Spatie\\Sluggable\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CbxTaxonomyScoped\\Spatie\\Sluggable\\Tests\\": "tests"
+            "Spatie\\Sluggable\\Tests\\": "tests"
         }
     },
     "scripts": {

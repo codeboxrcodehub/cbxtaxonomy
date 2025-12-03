@@ -31,6 +31,7 @@ return [
 		'WpOrg',            // anything WP-related
 		'PHPUnit',
 		'Symfony\\Polyfill',
+		'Spatie\Sluggable'
 	],
 
 	// Don’t touch global functions that WP expects
