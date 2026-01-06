@@ -1,7 +1,7 @@
 === CBX Taxonomy ===
 Contributors: codeboxr, manchumahara
 Requires at least: 5.3
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 1.0.4
 License: MIT
 License URI: https://github.com/codeboxrcodehub/cbxtaxonomy/blob/master/LICENSE.txt
